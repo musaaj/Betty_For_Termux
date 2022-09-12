@@ -1,18 +1,12 @@
 #!/bin/bash
 
-if [ "$(id -u)" != "0" ]
-then
-	echo "Sorry, you are not root."
-	exit 1
-fi
-
 BETTY_STYLE="betty-style"
 BETTY_DOC="betty-doc"
 BETTY_WRAPPER="betty"
 
-APP_PATH="/opt/betty"
-BIN_PATH="/usr/local/bin"
-MAN_PATH="/usr/local/share/man/man1"
+APP_PATH="${HOME}/../opt/betty"
+BIN_PATH="${HOME}/../usr/bin"
+MAN_PATH="${HOME}/../usr/share/man/man1"
 
 echo -e "Installing binaries.."
 
@@ -39,7 +33,4 @@ cp "man/${BETTY_STYLE}.1" "${MAN_PATH}"
 cp "man/${BETTY_DOC}.1" "${MAN_PATH}"
 
 echo -e "Updating man database.."
-
-mandb
-
 echo -e "All set."
